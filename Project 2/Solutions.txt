@@ -1,0 +1,41 @@
+4: Convert the following hex values to decimal assuming that they are stored as 2s
+complement integers.
+a. 0x0000000F
+   
+   1111
+   -2^3 + 2^2 + 2 + 1
+    -8 + 4 + 2 + 1
+	-1 
+
+b. 0xFFFFFCE6
+   1111 1111 1111 1111 1111 1100 1110 0110
+   1100 1110 0110
+   -2^11 + 2^10 + 2^7 + 2^6 + 2^5 + 2^2 + 2^1 = -794
+
+c. 0xFFFFFFFF
+when all bits are 1's always add up to -1
+	-1
+
+------------------------------------------------------------------------------------------
+
+
+5: Convert the following hex values to decimal assuming that they are encoded as IEEE 754
+single-precision floating-point numbers:
+
+a. 0x00000000
+
+b. 0x41120000
+
+c. 0xC39D0000
+
+------------------------------------------------------------------------------------------
+
+
+6: Convert the following decimal numbers to hex encoded as IEEE 754 single-precision
+floating-point numbers.
+
+a. -1.0
+
+b. 10.5
+
+c. -85.125
