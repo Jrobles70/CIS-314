@@ -11,27 +11,26 @@ unsigned f2u(float f) {
 int float_le(float x, float y) {
     unsigned ux = f2u(x);
     unsigned uy = f2u(y);
-    printf("%f %f\n", (x,y));
-    printf("%x %x\n", (x,y));
-    printf("%x %x\n", (ux,uy));
     /* Get the sign bits */
     unsigned sx = ux >> 31;
     unsigned sy = uy >> 31;
-    printf("%x %x\n", (sx,sy));
 
     /* Give an expression using only ux, uy, sx, and sy */
+
     // there are a few cases we must consider:
+    //
     // 1: That x is negative and y is positive
-    // 2: That x and y have the same sign (+ or -)
-    //      2a: x is smaller
-    //      2b: y is smaller
-    // so in case 1
-    return (sx > sy) | (ux < uy);
+    // 2: That x and y have the same sign and (x < y)
+    //
+    // case 1: 1 means negative, 0 means positive so if (sx > sy) then (x < y)
+    // case 2: if signs are same (sx == sy) and (ux < uy) then (x < y)
+
+    return (sx > sy) | ((sx == sy) && (ux < uy));
 }
 
 main() {
-    float x = 1;
-    float y = 2;
+    float x = -9.99;
+    float y = -9.99;
     if (float_le(x, y)){
         printf("TRUE");
     } else {

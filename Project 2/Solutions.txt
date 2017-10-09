@@ -23,8 +23,10 @@ when all bits are 1's always add up to -1
 single-precision floating-point numbers:
 
 a. 0x00000000
+	0
 
 b. 0x41120000
+	
 
 c. 0xC39D0000
 
