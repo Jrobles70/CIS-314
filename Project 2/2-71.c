@@ -27,8 +27,10 @@ int test_xbyte(packed_t word, int bytenum) {
     signed test = xbyte(word, bytenum);
     printf("Returned int: %i\n", test);
     printf("Returned hex: %x\n", test);
+    return 0;
 }
-    main(){
+
+int main(){
     test_xbyte(0xFFFEFDFC, 0);
     return 0;
     }

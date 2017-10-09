@@ -28,7 +28,7 @@ int float_le(float x, float y) {
     return (sx > sy) | ((sx == sy) && (ux < uy));
 }
 
-main() {
+int main() {
     float x = -9.99;
     float y = -9.99;
     if (float_le(x, y)){
@@ -36,4 +36,5 @@ main() {
     } else {
         printf("FALSE");
     }
+    return 0;
 }

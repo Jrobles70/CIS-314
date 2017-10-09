@@ -3,8 +3,8 @@
 //
 
 /* Copy integer into buffer if space is available */
-#include <mem.h>
 #include <stdio.h>
+#include <string.h>
 
 /* WARNING: The following code is buggy */
 void copy_intOLD(int val, void *buf, int maxbytes) {
@@ -12,7 +12,9 @@ void copy_intOLD(int val, void *buf, int maxbytes) {
         memcpy(buf, (void *) &val, sizeof(val));
         // If this print statement prints then that means there is a bug in the code since I made the
         // maxbytes = 0
-        printf("copy_intOLD: Bug");
+        printf("copy_intOLD: maxbytes - sizeof(val) >= 0\n");
+    } else {
+        printf("copy_intOLD: maxbytes - sizeof(val) < 0\n");
     }
 }
 
@@ -21,15 +23,18 @@ void copy_int(int val, void *buf, int maxbytes) {
     // properly. "copy_intOLD: Bug" will print but "copy_int: Bug" will not
     if (maxbytes >= sizeof(val)) {
         memcpy(buf, (void *) &val, sizeof(val));
-        printf("copy_int: Bug");
+        printf("copy_int: maxbytes >= sizeof(val)\n");
+    } else {
+        printf("copy_int: maxbytes < sizeof(val)\n");
     }
 }
 
-main(){
+int main(){
     int a = 10;
     int* buf = &a;
     copy_intOLD(1, buf, 0);
     copy_int(1, buf, 0);
+    return 0;
 }
 
 // A: This does not work because ints are signed by default but the value of size_t is
