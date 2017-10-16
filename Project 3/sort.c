@@ -86,10 +86,7 @@ main() {
     // call readArray to create an array, call sortArray to sort it, call printArray
     // to print the result, then free the heap memory used by the array.
     int *a = readArray(5);
-    printArray(a, 5);
-    swap(&a[0],&a[1]);
-    printArray(a,5);
     sortArray(a, 5);
-    printArray(a,5);
-
+    printArray(a, 5);
+    free(a);
 }
